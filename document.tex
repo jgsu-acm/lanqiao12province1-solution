@@ -188,7 +188,7 @@
     \begin{itemize}
         \item 设计状态：$dp[i][j]$ 表示选到第 $i$ 个砝码时重量 $j$ 能否称出来
         \item 初始状态：$dp[i][w_i]=true$
-        \item 状态转移方程：$$dp[i][j]=dp[i-1][j] \lor dp[i-1][{\color{red}|}j-w_i{\color{red}|}] \lor dp[i-1][j+w[i]]$$
+        \item 状态转移方程：$$dp[i][j]=dp[i-1][j] \lor dp[i-1][|j-w_i|] \lor dp[i-1][j+w[i]]$$
         \item 所求答案：$$\sum_{j=1}^{\sum w_i}[dp[n][j]=true]$$
     \end{itemize}
 
@@ -245,7 +245,7 @@
 \end{frame}
 
 \begin{frame}{栈}
-    直接暴力排序的时间复杂度为 $O(mnlogn)$ 的，只能得到 $60$ 分。
+    直接暴力排序的时间复杂度为 $O(mn\log{n})$ 的，只能得到 $60$ 分。
 
     我们可以发现，对于连续的几条同一种操作，显然覆盖范围最广的会覆盖掉其它操作，所以首先我们使用一个栈来维护操作，使得两种操作在栈内交替出现
 
@@ -274,7 +274,7 @@
 
     因为值域线段树上的数是有序的，故对于排序操作即通过线段树的分裂合并操作使用一个值域线段树维护操作区间即可。
 
-    时间复杂度 $O(mlogn)$
+    时间复杂度 $O(m\log{n})$
 \end{frame}
 
 \section{异或数列}
