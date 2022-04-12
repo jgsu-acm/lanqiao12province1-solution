@@ -139,7 +139,7 @@
     dfs 爆搜时间复杂度过于巨大，显然不行。需要用状压 dp 来优化
 
     \begin{itemize}
-        \item 设计状态：$dp[set][u]$ 代表当前到达点 $u$ 处且已经到达了 $set$ 中所有点的方案数（$u \in set$）
+        \item 状态设计：$dp[set][u]$ 代表当前到达点 $u$ 处且已经到达了 $set$ 中所有点的方案数（$u \in set$）
         \item 初始状态：$dp[\{1\}][1]=1$
         \item 转移方程：$$dp[set][u]=\sum_{v \in set,(u,v) \in E}dp[set-u][v]$$
         \item 所求答案：$$\sum_{u \in V,(1,u) \in E}dp[V][u]$$
@@ -186,7 +186,7 @@
     天平问题是经典的背包问题
 
     \begin{itemize}
-        \item 设计状态：$dp[i][j]$ 表示选到第 $i$ 个砝码时重量 $j$ 能否称出来
+        \item 状态设计：$dp[i][j]$ 表示选到第 $i$ 个砝码时重量 $j$ 能否称出来
         \item 初始状态：$dp[i][w_i]=true$
         \item 状态转移方程：$$dp[i][j]=dp[i-1][j] \lor dp[i-1][|j-w_i|] \lor dp[i-1][j+w[i]]$$
         \item 所求答案：$$\sum_{j=1}^{\sum w_i}[dp[n][j]=true]$$
